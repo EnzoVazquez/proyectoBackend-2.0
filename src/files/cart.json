@@ -12,35 +12,12 @@
 	{
 		"id": 3,
 		"date": "2022-12-20T13:45:00.175Z",
-		"productos": [
-			{
-				"title": "Classic Polo Loft Bucket Hat Khaki ",
-				"price": "59,00",
-				"thumbnail": "https://cdn.shopify.com/s/files/1/0809/2599/products/ecom_tienda_0922_027_708x943.jpg?v=1662380014",
-				"stock": "5",
-				"id": 3
-			}
-		]
+		"productos": []
 	},
 	{
 		"id": 4,
 		"date": "2022-12-20T13:45:00.522Z",
-		"productos": [
-			{
-				"title": "POLO Bear Classic Corduroy Dadhat Verde",
-				"price": "79,00",
-				"thumbnail": "https://cdn.shopify.com/s/files/1/0809/2599/products/ecom_tienda_1022_077_708x943.jpg?v=1667383404",
-				"stock": "5",
-				"id": 2
-			},
-			{
-				"title": "9FIFTY New York Yankees Snapback Marron ",
-				"price": "33,00",
-				"thumbnail": "https://cdn.shopify.com/s/files/1/0809/2599/products/ecom_tienda_1022_033_740x986.jpg?v=1666089974",
-				"stock": 5,
-				"id": 0
-			}
-		]
+		"productos": []
 	},
 	{
 		"id": 5,

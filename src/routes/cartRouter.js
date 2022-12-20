@@ -50,4 +50,15 @@ router.post("/:id/productos/:productId",async(req,res,next)=>{
         console.log(error)
     }
 })
+
+//borrar producto por id
+router.delete("/:id/productos/:productId", async(req,res,next)=>{
+    try {
+        let productId = req.params.productId;
+        let cartId = req.params.id;
+        await contenedor.deleteProduct(cartId, productId)
+    } catch (error) {
+        console.log(error)
+    }
+})
 export default router

@@ -105,16 +105,6 @@ class contenedor {
   }
   };
 
-  //actualizar carro
-  update = async(cart) =>{
-    let carts = await this.getCarts();
-    carts.map((e)=>{
-      if(e.id == cart.id){
-        e.productos = [...e.productos,cart.productos]
-      }
-    })
-  }
-
   //guardar carro
   save = async(cart)=>{
     try {
@@ -123,6 +113,24 @@ class contenedor {
       await fs.promises.writeFile(this.path,JSON.stringify(carts,null,"\t"))
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  //borrar producto por su id
+  deleteProduct = async(cartId, productId)=>{
+    try {
+      const cart = await this.getCartById(cartId);
+      const {id,date,productos} = cart[0]
+      let newProducts = productos.filter(e=>e.id != productId);
+      let carts = await this.getCarts();
+      carts.map((e)=>{
+        if(e.id == cart[0].id){
+          e.productos=newProducts;
+        }
+      })
+      await fs.promises.writeFile(this.path,JSON.stringify(carts,null,"\t"))
+    } catch (error) {
+      console.log(error)
     }
   }
 }
