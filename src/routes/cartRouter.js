@@ -1,9 +1,11 @@
 import { Router } from "express";
 import context from "../contexts/cartContext.js"
 import __dirname from "../utils.js";
+import productContext from "../contexts/context.js"
 
 let router = new Router();
 let contenedor = new context(__dirname + "/files/cart.json")
+let contenedorProductos = new productContext(__dirname + "/files/productos.json")
 
 //crear nuevo carrito
 router.post("/",async(req,res,next)=>{
@@ -33,6 +35,19 @@ router.delete("/:id", async(req,res,next)=>{
         console.log("carrito eliminado con exito");
     } catch (error) {
      console.log(error)   
+    }
+})
+
+//agregar productos por id de producto
+router.post("/:id/productos/:productId",async(req,res,next)=>{
+    try {
+        let productId = req.params.productId;
+        let cartId = req.params.id;
+        let productFilter = await contenedorProductos.getById(productId);
+        let productAdded = await contenedor.addProduct(productFilter, cartId);
+        console.log(productAdded);
+    } catch (error) {
+        console.log(error)
     }
 })
 export default router

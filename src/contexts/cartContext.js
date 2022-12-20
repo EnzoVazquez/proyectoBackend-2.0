@@ -20,6 +20,17 @@ class contenedor {
     }
   };
 
+  //traer carro por id
+  getCartById = async(id) =>{
+    try {
+      let carts = await this.getCarts();
+      let cartFilter = carts.filter(e =>e.id == id)
+      return cartFilter
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //crear nuevo carro
   newCart = async () => {
     try {
@@ -72,6 +83,48 @@ class contenedor {
       console.log(error);
     }
   };
+
+  //agregar productos por id
+  addProduct = async (product, cartId) => {
+  try {
+    const cart = await this.getCartById(cartId);
+    const {id,date,productos} = cart[0]
+    console.log(cart)
+    productos.push(product)
+    console.log(productos)
+    let carts = await this.getCarts();
+    carts.map((e)=>{
+      if(e.id == cart[0].id){
+        e.productos=[...e.productos,product]
+      }
+    })
+    await fs.promises.writeFile(this.path,JSON.stringify(carts,null,"\t"))
+   return cart
+  } catch (error) {
+    console.log(error)
+  }
+  };
+
+  //actualizar carro
+  update = async(cart) =>{
+    let carts = await this.getCarts();
+    carts.map((e)=>{
+      if(e.id == cart.id){
+        e.productos = [...e.productos,cart.productos]
+      }
+    })
+  }
+
+  //guardar carro
+  save = async(cart)=>{
+    try {
+      let carts = await this.getCarts();
+      carts.push(cart);
+      await fs.promises.writeFile(this.path,JSON.stringify(carts,null,"\t"))
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 export default contenedor;
