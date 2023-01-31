@@ -1,9 +1,11 @@
 import { Router } from "express";
-import context from "../contexts/context.js"
+import context from "../contexts/MongoDB/context.js"
 import __dirname from "../utils.js"
 
 let router = new Router();
-let contenedor = new context(__dirname + "/files/productos.json")
+//este es para fs
+//let contenedor = new context(__dirname + "/files/productos.json")
+let contenedor = new context()
 
 //traer todos los productos
 router.get("/",async(req,res,next)=>{
@@ -33,14 +35,7 @@ router.post("/", async(req,res,next)=>{
         if(!title||!price||!thumbnail||!stock){
             console.log("faltan valores");
         }else{
-            let newProduct = {
-                title,
-                price,
-                thumbnail,
-                stock
-            };
-            await contenedor.save(newProduct);
-            console.log(`${newProduct.id}`);
+            await contenedor.save({title:title, price:price, thumbnail:thumbnail, stock:stock});
             res.redirect('/products')
         }
     } catch (error) {
@@ -75,7 +70,6 @@ router.delete("/:id", async(req,res,next)=>{
     try {
         let id = req.params.id;
         await contenedor.deleteById(id);
-        console.log("producto borrado con exito")
         res.send(`producto con el Id ${id} fue borrado con exito`)
     } catch (error) {
         console.log(error)

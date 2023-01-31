@@ -53,5 +53,19 @@
 		"thumbnail": "https://cdn.shopify.com/s/files/1/0809/2599/products/ecom_tienda_0422_098_708x943.jpg?v=1650275541",
 		"stock": "7",
 		"id": 7
+	},
+	{
+		"title": "NYDaisies Dad Hat Blue/Yellow ",
+		"price": "28,90",
+		"thumbnail": "https://cdn.shopify.com/s/files/1/0809/2599/products/v1mTSHmo_708x943.jpg?v=1668772769",
+		"stock": "9",
+		"id": 8
+	},
+	{
+		"title": "DEUS aero tech 5 panel ",
+		"price": "49,00",
+		"thumbnail": "https://cdn.shopify.com/s/files/1/0809/2599/products/ecom_tienda_1022_022_740x986.jpg?v=1665074637",
+		"stock": "12",
+		"id": 9
 	}
 ]

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import context from "../contexts/cartContext.js"
+import context from "../contexts/FileSystem/cartContext.js"
 import __dirname from "../utils.js";
-import productContext from "../contexts/context.js"
+import productContext from "../contexts/FileSystem/context.js"
 
 let router = new Router();
 let contenedor = new context(__dirname + "/files/cart.json")
