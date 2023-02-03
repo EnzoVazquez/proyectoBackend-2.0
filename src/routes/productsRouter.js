@@ -6,6 +6,7 @@ let router = new Router();
 //este es para fs
 //let contenedor = new context(__dirname + "/files/productos.json")
 let contenedor = new context()
+let DB  = "mongoAtlas"
 
 //traer todos los productos
 router.get("/",async(req,res,next)=>{
@@ -47,17 +48,17 @@ router.post("/", async(req,res,next)=>{
 router.put("/:id", async(req,res,next)=>{
     try {
         let id = req.params.id;
-        let {title,price,thumbnail} = req.body
-        if(!title || !price || !thumbnail){
+        let {title,price,thumbnail,stock} = req.body
+        if(!title || !price || !thumbnail || !stock){
             res.send("faltan datos")
         }else{
             let updateProduct ={
-                id,
                 title,
                 price,
-                thumbnail
+                thumbnail,
+                stock
             };
-            await contenedor.update(updateProduct)
+            await contenedor.update({id,updateProduct})
             res.send(`se actualizo el producto ${updateProduct.title}`)
         }
     } catch (error) {
