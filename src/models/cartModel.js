@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import productModel from "./productsModel.js";
+
 const collection = 'carritos'
 
 const schema = new mongoose.Schema({
-    date: Date,
-    items: [productModel]
+    usuario: {type: String, required:true, unique:true},
+    productos: {type: Array, required: true}
 });
 
 mongoose.set('strictQuery', true)

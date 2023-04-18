@@ -16,7 +16,9 @@
                 "PORT":"8080",
                 "MONGO_URL":"mongodb+srv://enzo:coder123@clustercoderback.a4dyco9.mongodb.net/proyecto?retryWrites=true&w=majority",
                 "JWT_SECRET":"coderSecret",
-                "JWT_COOKIE":"UserCookie"
+                "JWT_COOKIE":"UserCookie",
+                "GMAIL_PWD":"icepkjnmauprliho",
+                "GMAIL_USER":"mellysvazquez@gmail.com"
             },
             "restart": true,
             "runtimeExecutable": "nodemon"

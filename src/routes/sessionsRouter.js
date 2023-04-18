@@ -63,7 +63,7 @@ router.get('/githubCallback',passport.authenticate('github'),(req,res)=>{
     }
 
     const token = jwt.sign(userToken,config.jwt.SECRET,{expiresIn:"1d"});
-    res.cookie(config.jwt.COOKIE,token).send({status:"success",message:"logged in"})
+    res.cookie(config.jwt.COOKIE,token).send({status:"success",message:"logged in"});
 })
 
 export default router
