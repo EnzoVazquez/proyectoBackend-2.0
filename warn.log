@@ -1,0 +1,3 @@
+{"level":"warn","message":"error en createCart: MongoServerError: E11000 duplicate key error collection: proyecto.carts index: usuario_1 dup key: { usuario: null }"}
+{"level":"warn","message":"error en createCart: MongoServerError: E11000 duplicate key error collection: proyecto.carts index: usuario_1 dup key: { usuario: null }"}
+{"level":"warn","message":"error en createCart: ReferenceError: cart is not defined"}

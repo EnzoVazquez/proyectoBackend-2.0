@@ -1,10 +1,11 @@
 import passport from "passport";
 import local from "passport-local";
-import userService from "../models/user.js";
+import mongoUser from "../DAO/MongoDB/userDAO.js";
 import {createHash, isValidPassword} from '../services/hash.js'
 import githubStrategy from 'passport-github2'
 
 const LocalStrategy = local.Strategy;
+const userService = new mongoUser();
 
 const initializePassport = () =>{
 
@@ -14,7 +15,7 @@ const initializePassport = () =>{
         const {name} = req.body;
         if(!name||!email||!password) return done(null,false,{message:'faltan valores'})
         //revisar si existe el usuario
-        const exists = await userService.findOne({email:email});
+        const exists = await userService.getUserBy({email});
         if(exists) return done(null,false,{message:'usuario ya existente'})
         //meter a la base
         const newUser = {
@@ -22,7 +23,7 @@ const initializePassport = () =>{
         email,
         password:createHash(password)
         };
-        let result = await userService.create(newUser);
+        let result = await userService.createUser(newUser);
         return done(null,result);
 
         } catch (error) {
@@ -33,7 +34,7 @@ const initializePassport = () =>{
     passport.use('login',new LocalStrategy({usernameField:'email'},
     async(email,password,done)=>{
         if(!email||!password) return done(null,false,{message:"Incomplete values"})
-        const user = await userService.findOne({email:email});
+        const user = await userService.getUserBy({email});
         if(!user) return done(null,false,{message:"el usuario no existe"})
         if(!isValidPassword(password,user.password)) return done(null,false,{message:"Incorrect password"});
         return done(null,user);
@@ -49,7 +50,7 @@ const initializePassport = () =>{
         console.log(profile);
         const {name,location,email} = profile._json
         //revisar si esta logueado
-        let user = await userService.findOne({email:email});
+        let user = await userService.getUserBy({email});
         //si no existe se crea el usuario
         if(!user){
             let newUser = {
@@ -58,7 +59,7 @@ const initializePassport = () =>{
                 location,
                 password:''
             }
-            let result = await userService.create(newUser);
+            let result = await userService.createUser(newUser);
             return done(null,result);
         }else{
             //si entra aca, ya tiene un usuario
@@ -70,7 +71,7 @@ const initializePassport = () =>{
         done(null,user._id)
     });
     passport.deserializeUser(async(id,done)=>{
-        let result = await userService.findOne({_id:id})
+        let result = await userService.getUserBy(id)
         return done(null,result)
     })
 

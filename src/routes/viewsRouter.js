@@ -1,36 +1,26 @@
 import { Router } from "express";
-import context from "../contexts/MongoDB/context.js"
 import __dirname from "../utils.js"
-import requireAuth from '../middleware/login.js'
+import viewsController from '../controllers/views.controllers.js'
+import {executePolicies} from '../middleware/login.js'
 
 let router = new Router();
-let contenedor = new context(__dirname + "/files/productos.json");
 
-router.get('/',async(req,res)=>{
-    res.render('login')
-});
+router.get('/',viewsController.login);
 
-router.get("/register",async(req,res)=>{
-    res.render('register');
-});
+router.get("/register",viewsController.register);
 
-router.get("/main",async(req,res)=>{
-    res.render('inicio');
-});
+router.get("/main",executePolicies(["AUTHENTICATED"]),viewsController.main);
 
-router.get("/addProduct",async(req,res)=>{
-    res.render('addProduct');
-});
+router.get("/addProduct",executePolicies(["AUTHENTICATED"]),viewsController.addProduct);
 
-router.get("/products",async(req,res)=>{
-    let stock = await contenedor.getAll();
-    res.render("products",{stock})
-});
+router.get("/products",executePolicies(["AUTHENTICATED"]),viewsController.products);
 
-router.get('/logout', (req,res)=>{
-    res.render('logout', {user:req.session.user});
-    req.session.destroy();
-    if(!req.session.user) return console.log('sesion terminada!')
-});
+router.get('/cart',executePolicies(["AUTHENTICATED"]),viewsController.cart);
+
+router.get('/logout', viewsController.logout);
+
+router.get('/profile',executePolicies(["AUTHENTICATED"]), viewsController.profile);
+
+router.get('/ticket',executePolicies(["AUTHENTICATED"]),viewsController.ticket)
 
 export default router

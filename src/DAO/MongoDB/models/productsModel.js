@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePagination from 'mongoose-paginate-v2'
 
 const collection = 'productos'
 
@@ -8,6 +9,8 @@ const schema = new mongoose.Schema({
     thumbnail:  String,
     stock: Number,
 });
+
+schema.plugin(mongoosePagination); 
 
 mongoose.set('strictQuery', true)
 

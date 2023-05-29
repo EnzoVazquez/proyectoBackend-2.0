@@ -1,0 +1,39 @@
+<div>
+    <h1>{{user.name}}, este es tu carrito</h1>
+    {{#if products}}
+    <br>
+    <h4>Precio total:${{this.totalPrice}}</h4>
+    {{#each products}}
+    <div class="cartContainer">
+        <div class="cartContext">
+            <div>
+                <img src="{{this.thumbnail}}" alt="" class="foto">
+            </div>
+            <div class="col">
+                <p>{{this.title}} x {{this.cantidad}}</p>
+                <p>${{this.price}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}} 
+    <div>
+        <a id="purchase">
+            <strong>
+                Finalizar compra
+            </strong>
+        </a>
+        <a href="/products">
+            Seguir comprando
+        </a>    
+    </div>
+    {{else}}
+    <h5>No tienes productos en tu carrito aun</h5>
+    <a href="/products">
+        <button class="button">
+            Ir a comprar
+        </button>
+    </a>
+    {{/if}}
+</div>
+<script src="/js/cart.js"></script>
+<link rel="stylesheet" href="css/cart.css">

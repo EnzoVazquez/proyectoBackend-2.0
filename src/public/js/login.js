@@ -14,5 +14,6 @@ form.addEventListener('submit',async evt=>{
         }
     })
     const result = await response.json();
+    if(result.status === 'success') window.location.replace('/main')
     console.log(result);
 })
