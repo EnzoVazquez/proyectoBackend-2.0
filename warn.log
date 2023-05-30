@@ -1,3 +1,16 @@
 {"level":"warn","message":"error en createCart: MongoServerError: E11000 duplicate key error collection: proyecto.carts index: usuario_1 dup key: { usuario: null }"}
 {"level":"warn","message":"error en createCart: MongoServerError: E11000 duplicate key error collection: proyecto.carts index: usuario_1 dup key: { usuario: null }"}
 {"level":"warn","message":"error en createCart: ReferenceError: cart is not defined"}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el updateCart CastError: Cast to embedded failed for value \"{ _id: 'deleteProduct' }\" (type Object) at path \"productos\" because of \"CastError\""}
+{"level":"warn","message":"error en el deleteProduct ReferenceError: cart is not defined"}
+{"level":"warn","message":"error en el deleteProduct ReferenceError: cart is not defined"}

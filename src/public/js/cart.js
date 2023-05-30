@@ -7,4 +7,5 @@ button.addEventListener('click', async e=>{
     })
     const result = await response.json();
     console.log(result);
+    if(result.status === 'success') window.location.replace('/ticket')
 })

@@ -6,18 +6,21 @@
     {{#each products}}
     <div class="cartContainer">
         <div class="cartContext">
-            <div>
+            <div id="{{this.id}}">
                 <img src="{{this.thumbnail}}" alt="" class="foto">
             </div>
             <div class="col">
                 <p>{{this.title}} x {{this.cantidad}}</p>
                 <p>${{this.price}}</p>
             </div>
+            <form action="/api/cart/deleteProduct/{{this._id}}" method="POST">
+            <input type="submit" value="borrar producto">
+            </form>
         </div>
     </div>
     {{/each}} 
     <div>
-        <a id="purchase">
+        <a id="purchase" style="cursor: pointer;">
             <strong>
                 Finalizar compra
             </strong>
@@ -27,7 +30,7 @@
         </a>    
     </div>
     {{else}}
-    <h5>No tienes productos en tu carrito aun</h5>
+    <h5 style="margin: 20px;font-size:x-large">No tienes productos en tu carrito aun</h5>
     <a href="/products">
         <button class="button">
             Ir a comprar

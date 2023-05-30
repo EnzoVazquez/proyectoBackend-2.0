@@ -55,3 +55,21 @@ h2{
     margin: 5px;
     font-size: 1.2rem;
 }
+
+.display a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: black;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 300;
+    border: solid;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 1rem;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

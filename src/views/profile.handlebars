@@ -1,8 +1,16 @@
-<div>
+<div class="menu">
+    <h1>TU PERFIL</h1>
+    <a href="http://localhost:8080/main">INICIO</a>
+    <a href="http://localhost:8080/products">PRODUCTOS</a>
+    <a href="http://localhost:8080/cart">TU CARRITO</a>
+</div>
+<div class="container">
     <div>
         <img src={{user.avatar}}>
     </div>
     <div>
         <p>{{user.name}}</p>
+        <p>{{user.email}}</p>
     </div>
 </div>
+<link rel="stylesheet" href="/css/profile.css">

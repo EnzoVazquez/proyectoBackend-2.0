@@ -48,3 +48,9 @@ a{
     padding: 5px;
     margin: 2rem;
 }
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

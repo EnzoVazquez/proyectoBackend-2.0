@@ -66,5 +66,5 @@ export default {
   cart,
   profile,
   ticket,
-  logout
+  logout,
 };

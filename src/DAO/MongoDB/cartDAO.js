@@ -1,11 +1,12 @@
 import cartModel from "./models/cartModel.js";
+
 import { logger } from "../../middleware/logger.js";
 
 export default class cartsDao {
   getCartById = (id, options = {}) => {
     try {
       if (options.populate)
-        return cartModel.findOne({ _id: id }).populate('productos._id').lean();
+        return cartModel.findOne({ _id: id }).populate("productos._id").lean();
       return cartModel.findOne({ _id: id }).lean();
     } catch (error) {
       logger.warn(`error en el getCartById: ${error}`);
@@ -31,9 +32,17 @@ export default class cartsDao {
 
   updateCart = async (id, cart) => {
     try {
-      return await cartModel.findByIdAndUpdate(id,{$set:cart})
+      return await cartModel.findByIdAndUpdate(id, { $set: cart });
     } catch (error) {
       logger.warn(`error en el updateCart ${error}`);
+    }
+  };
+
+  deleteProduct = async (params) => {
+    try {
+      return cartModel.findOneAndRemove().where(cart.productos == params);
+    } catch (error) {
+      logger.warn(`error en el deleteProduct ${error}`);
     }
   };
 }
